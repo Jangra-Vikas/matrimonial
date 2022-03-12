@@ -20,7 +20,7 @@ $chartMonth = empty($_GET['month']) ? date('m') : $_GET['month'];
 $chartYear = empty($_GET['year']) ? date('Y') : (($_GET['month'] == "01") ? $_GET['year'] : (($_GET['month'] == "12") ? $_GET['year'] : $_GET['year']));
 $chartDate = $chartYear.'-'.$chartMonth;
 
-$conn = new mysqli("localhost","root","","neovivah");
+$conn = new mysqli("localhost","root","","matrimonial");
 $yesterday=date('Y-m-d',strtotime('-1 day'));
 $toDay=date('Y-m-d');
 $tstart=date('Y-m-d 00:00:01');

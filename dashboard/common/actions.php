@@ -13,7 +13,7 @@ if(isset($_POST['register'])){
 	if($check->num_rows == 0){
 		$_POST['id'] = $fetch['id']+1;
 		$_SESSION['user'] = $_POST;
-		$sql="INSERT INTO users (full_name, username, mobile, email, password, user_type, token)VALUES('$full_name', '$username', '$mobile', '$email', '$password', 'User', '$token')";
+		$sql="INSERT INTO users (full_name, username, mobile, email, password, user_type, token, status)VALUES('$full_name', '$username', '$mobile', '$email', '$password', 'User', '$token', 'Confirmed')";
 		if($conn->query($sql) === TRUE){
 			header('Location:../../profile_setup.php?response=true&msg=Complete your registration');
 		}else{
@@ -454,6 +454,14 @@ if(isset($_GET['update'])){
 		$children = $_POST['children'];
 		$address = $_POST['address'];
 
+        $img = $_FILES['image']['name'];
+        $tmp = $_FILES['image']['tmp_name'];
+        $image = time().$img;
+        //print_r($_FILES); die;
+        if (!empty($_FILES['image']['name'])){
+            move_uploaded_file($tmp,'../assets/img/users/'.$image);
+            $conn->query("UPDATE users SET image='$image' WHERE id = $userId");
+        }
 		$sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children' WHERE id = $userId");
 	} else {
 		$sql = $conn->query("UPDATE users SET $column='$jsonData' WHERE id = $userId");
@@ -473,7 +481,6 @@ if (isset($_POST['add_plan'])) {
 	$contact_view	= $_POST['contact_view'];
 	$validity       =  $_POST['validity'];
     $status			=   $_POST['status'];
-    $_FILES['package_image']['name'];
 	$image = $_FILES['package_image']['name'];
 	$_FILES['package_image']['type'];
 	$_FILES['package_image']['size'];

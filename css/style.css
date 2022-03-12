@@ -1475,7 +1475,9 @@ td.day_label1{
     padding:2px 0;
 }
 .profile_top{
-	margin-bottom:2em;
+    margin-bottom: 1em;
+    padding: 10px;
+    border: 1px #e6e6e6 solid;
 }
 .profile_top1{
 	margin-bottom:0;

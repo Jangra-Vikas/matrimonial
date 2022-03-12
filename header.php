@@ -1,7 +1,7 @@
 <?php require_once('dashboard/common/config.php');
-if (!$_SESSION['guest'] && !$_GET['welcome']) {
+/*if ((!$_SESSION['guest'] || !$_SESSION['user']) && !$_GET['welcome']) {
 	header('Location:index.php?welcome=true');
-} ?>
+}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,22 +9,22 @@ if (!$_SESSION['guest'] && !$_GET['welcome']) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!----font-Awesome----->
+    <script src="js/jquery.min.js"></script>
+    <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!----font-Awesome----->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
-    $(".dropdown").hover(            
+    $('.dropify').dropify();
+    $(".dropdown").hover(
         function() {
             $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
             $(this).toggleClass('open');        
@@ -34,7 +34,7 @@ $(document).ready(function(){
             $(this).toggleClass('open');       
         }
     );
-    <?php if ($_GET['welcome'] == 'true' && !empty($_SESSION)) { ?>
+    <?php if ($_GET['welcome'] == 'true' && empty($_SESSION)) { ?>
 		$('#welcomeModal').modal('show');
 	<?php } ?>
 });
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	}
 </style>
 </head>
-<body onLoad="document.getElementById('toster').click();">
+<body>
 <!-- ============================  Navigation Start =========================== -->
  <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
@@ -87,7 +87,7 @@ $(document).ready(function(){
 								<li><a href="members.php">Search</a></li>
 					            <li class="last"><a href="contact.php">Contacts</a></li>
 					            <?php if (!$logged_user){ ?>
-									<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
+									<li><a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-lock"></i> Login</a></li>
 							    	<li><a href="register.php"><i class="fa fa-user"></i> Register</a></li>
 								<?php } else { ?>
 							    	<li><a href="profile_setup.php"><i class="fa fa-user"></i> Profile</a></li>

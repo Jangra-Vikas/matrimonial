@@ -20,7 +20,8 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                         <p>Basic Information</p>
                     </div>
                     <div class="card-body">
-                        <form action="dashboard/common/actions.php?update=basic_info" method="post">
+                        <form action="dashboard/common/actions.php?update=basic_info" method="post" enctype="multipart/form-data">
+                            <input name="image" class="dropify" data-default-file="dashboard/assets/img/users/<?php echo $logged_user['image']; ?>" type="file" />
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
                                     <div class="myRow">
@@ -34,7 +35,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                                 <option value="">Gender</option>
                                                 <option value="Male" <?php echo ($logged_user['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
                                                 <option value="Female" <?php echo ($logged_user['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
-                                                <option value="Transegender" <?php echo ($logged_user['gender'] == 'Transegender') ? 'selected' : ''; ?>>Transegender</option>
+                                                <option value="Transgender" <?php echo ($logged_user['gender'] == 'Transgender') ? 'selected' : ''; ?>>Transgender</option>
                                                 <option value="Other" <?php echo ($logged_user['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
                                             </select>
                                         </div>

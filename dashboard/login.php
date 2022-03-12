@@ -1,4 +1,4 @@
-<?php if(isset($logged_user_id)){ header('Location:index.php'); } ?>
+<?php if(isset($logged_user)){ header('Location:index.php'); } ?>
 
 <!DOCTYPE html>
 <html lang="en">

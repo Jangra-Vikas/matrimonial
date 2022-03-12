@@ -86,13 +86,43 @@
 	</form>
 </div>
 
+<div class="modal fade" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
+	<form action="dashboard/common/actions.php" method="POST">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Welcome back!
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</h5>
+				</div>
+				<div class="modal-body">
+                        <div class="form-item form-type-textfield form-item-name">
+                            <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+                            <input type="text" id="edit-name" name="username" value="" size="60" maxlength="60" class="form-text required">
+                        </div>
+                        <div class="form-item form-type-password form-item-pass">
+                            <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+                            <input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text required">
+                        </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+					<button type="submit" name="login" class="btn btn-primary">Login</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
     <div class="footer">
     	<div class="container">
     		<div class="copy">
-		      <p>Copyright © 2015 Marital . All Rights Reserved  | Design by <a href="#">Ayush Chauhan</a></p>
+		      <p>Copyright © 2015 NeoVivah . All Rights Reserved  | Design by <a href="#">Ayush Chauhan</a></p>
 	        </div>
     	</div>
     </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
