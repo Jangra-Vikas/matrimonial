@@ -2,34 +2,14 @@
 ini_set('display_errors','off');
 $page=basename($_SERVER['PHP_SELF']); require_once("class.phpmailer.php"); 
 $back=isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/'; if($page=='posted.php'){ date_default_timezone_set('Europe/London'); }else{ date_default_timezone_set('Asia/Kolkata'); }
-/*if($_GET['start'] && $_GET['end']){
-	$mstart=date('Y-m-d', strtotime('-1 month', strtotime($_GET['start'])));
-	$mend=date('Y-m-d', strtotime('-1 month', strtotime($_GET['end'])));
-	$cstart=date('Y-m-d', strtotime('+1 month', strtotime($_GET['start'])));
-	$cend=date('Y-m-d', strtotime('+1 month', strtotime($_GET['end'])));
-	
-	$hartMonth = $_GET['month'];
-	$chartYear = $_GET['year'];
-}else{
-	$mstart=date('Y-m-d',strtotime('first day of this month')); 
-	$mend=date('Y-m-d',strtotime('last day of this month'));
-}*/
-
-
-$chartMonth = empty($_GET['month']) ? date('m') : $_GET['month'];
-$chartYear = empty($_GET['year']) ? date('Y') : (($_GET['month'] == "01") ? $_GET['year'] : (($_GET['month'] == "12") ? $_GET['year'] : $_GET['year']));
-$chartDate = $chartYear.'-'.$chartMonth;
 
 $conn = new mysqli("localhost","root","","matrimonial");
-$yesterday=date('Y-m-d',strtotime('-1 day'));
-$toDay=date('Y-m-d');
-$tstart=date('Y-m-d 00:00:01');
-$tend=date('Y-m-d H:i:s');
-$tday=date('Y-m-d H:i:s');
-$yestday=date('Y-m-d 00:00:01',strtotime('-1 day'));
-$nextMonth = date('m',strtotime('+1 month',strtotime($chartDate)));
-$prevMonth = date('m',strtotime('-1 month',strtotime($chartDate)));
 
+function getDataById($table,$column,$filter){
+    $conn = new mysqli("localhost","root","","matrimonial");
+    $sql = $conn->query("SELECT * FROM $table WHERE id='$filter'")->fetch_assoc();
+    return $sql[$column];
+}
 
 // check connection
 if ($conn->connect_error){ die("Connection failed: " . $conn->connect_error); }else{ /*echo 'Connected';*/ }
@@ -61,7 +41,6 @@ function sendEmail($to, $subject, $bodytext){
     $mail->AddAddress($to);
     $status = $mail->Send();
 }
-
 
 // Time Ago Function
 
