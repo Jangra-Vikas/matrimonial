@@ -44,17 +44,17 @@ if(isset($_POST['login'])){
 	}
 }
 
-if(isset($_GET['token'])){
-	$token = $_GET['token'];
-	$fetch=$conn->query("SELECT * FROM users WHERE token='$token'")->fetch_assoc();
+if(isset($_POST['forgot'])){
+	$email = $_POST['email'];
+	$fetch=$conn->query("SELECT * FROM users WHERE email='$email'")->fetch_assoc();
 	$full_name=$fetch['full_name'];
 	$email=$fetch['email'];
 	$username=$fetch['username'];
 	$password=$fetch['password'];
 	if(!empty($email)){
 		$conn->query("UPDATE users SET status='Active' WHERE email='$email'");
-		$sub = 'AK Satta - Email Verification';
-			$msg = "Hi <b>$full_name</b>, <br>Your Email has been verified Successfully<br>Please find the credientials to login into account<br><br>
+		$sub = 'NeoVivah - Password recovery';
+			$msg = "Hi <b>$full_name</b>, <br>Your password has been recovered successfully.<br>Please find the credientials to login into account<br><br>
 				<b>Username:</b> $username<br>
 				<b>Email:</b> $email </br>
 				<b>Password:</b> $password<br>";

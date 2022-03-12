@@ -1,10 +1,9 @@
- 
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
 	<form action="dashboard/common/actions.php" method="POST">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Ragistration 
+					<h5 class="modal-title">Create your account
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -45,13 +44,12 @@
 										<option value="Other">Other</option>
 									</select>
 								</div>
-								
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success pull-left" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</button>
 					<button type="submit" name="register" class="btn btn-primary">Continue</button>
 				</div>
 			</div>
@@ -64,7 +62,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Modal title
+					<h5 class="modal-title">Welcome to NeoVivah
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -80,6 +78,33 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
 					<button type="submit" name="welcomeForm" class="btn btn-primary">Continue</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="modal fade" id="forgotModal" tabindex="1" role="dialog" aria-hidden="true">
+	<form action="dashboard/common/actions.php" method="POST">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Forgot your password
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</h5>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<input class="form-control" placeholder="Please enter your email" name="email" type="email" />
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success pull-left" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</button>
+					<button type="submit" name="forgot" class="btn btn-primary">Submit</button>
 				</div>
 			</div>
 		</div>
@@ -108,7 +133,8 @@
                         </div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success pull-left" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Register</button>
+					<button type="button" class="btn btn-warning pull-left" data-dismiss="modal" data-toggle="modal" data-target="#forgotModal">Forgot Password</button>
 					<button type="submit" name="login" class="btn btn-primary">Login</button>
 				</div>
 			</div>

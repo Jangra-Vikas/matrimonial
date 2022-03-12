@@ -65,7 +65,6 @@ $(document).ready(function(){
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
         <div class="navbar-inner">
            <div class="container">
-           
                 <a class="brand" href="index.php"><img src="images/logo2.png" alt="logo" width="180"></a>
             	<div class="pull-right">
           			<nav class="navbar nav_bottom" role="navigation">
@@ -88,7 +87,7 @@ $(document).ready(function(){
 					            <li class="last"><a href="contact.php">Contacts</a></li>
 					            <?php if (!$logged_user){ ?>
 									<li><a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-lock"></i> Login</a></li>
-							    	<li><a href="register.php"><i class="fa fa-user"></i> Register</a></li>
+							    	<li><a href="#" data-toggle="modal" data-target="#registerModal"><i class="fa fa-user"></i> Register</a></li>
 								<?php } else { ?>
 							    	<li><a href="profile_setup.php"><i class="fa fa-user"></i> Profile</a></li>
 							    	<li><a href="dashboard/common/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>

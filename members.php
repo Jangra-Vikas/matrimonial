@@ -46,7 +46,7 @@
                             </tbody>
                         </table>
                         <div class="buttons text-center">
-                            <div class="vertical">View Contact Information</div>
+                            <div class="vertical">View Details</div>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

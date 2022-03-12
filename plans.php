@@ -5,10 +5,7 @@
 			<p style="text-align: center;font-size: 40px;font-weight: bold;">Select Your Package</p>
 			<?php
 			$sql=$conn->query('SELECT * FROM plans WHERE status="Active"');
-			while ($plan=$sql->fetch_assoc()) {
-				
-			?>
-
+			while ($plan=$sql->fetch_assoc()) { ?>
 			<div class="col-md-4">
 				<div class="card-header">
         			<p><?php echo $plan['name']; ?></p>
@@ -23,13 +20,18 @@
 						<p style="color:#c32143;text-align:center;">Valid Days: <?php echo $plan['validity']; ?></p>
 						<br>
 					    <center>
-					    	<button type="button" data-plan="<?php echo $plan['id']; ?>" data-price="<?php echo $plan['price']; ?>" data-name="<?php echo $plan['name']; ?>" class="btn_1 submit payBtn">Purchase This package</button>
+                            <?php
+                            if (!empty($logged_user['id'])){
+                                echo '<button type="button" data-plan="'.$plan["id"].'" data-price="'.$plan['price'].'" data-name="'.$plan["name"].'" class="btn_1 submit payBtn">Purchase This package</button>';
+                            } else {
+                                echo '<button type="button" data-toggle="modal" data-target="#loginModal" class="btn_1 submit">Login To Purchase package</button>';
+                            }
+                            ?>
 					    </center>
 					</div>
 				</div>
 			</div>
-
-			 <?php } ?>
+            <?php } ?>
 		</div>
 	</div>
 	<script>

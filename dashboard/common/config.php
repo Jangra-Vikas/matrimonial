@@ -30,16 +30,16 @@ function sendEmail($to, $subject, $bodytext){
     $mail->SMTPSecure = 'ssl';
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 465;
-    $mail->Username = "siddhpurush00@gmail.com";
+    $mail->Username = "mlmdairyz@gmail.com";
     $mail->Password = "Admin@123";
-    $mail->SetFrom('mlmdairyz@gmail.com', 'AK Satta - सिद्ध पुरुष');
-    $mail->addAddress($to, 'AK Satta - सिद्ध पुरुष');
-    $mail->AddBCC('vikas.jangra1993@outlook.com', 'AK Satta - Vikas Jangra');
+    $mail->SetFrom('mlmdairyz@gmail.com', 'NeoVivah - Find your soulmate');
+    $mail->addAddress($to, 'NeoVivah - Find your soulmate');
+    $mail->AddBCC('vikas.jangra1993@outlook.com', 'NeoVivah - Find your soulmate');
     $mail->Subject = $subject;
-    $mail->Body = "<table style='border: 1px #61dbbb solid; padding: 15px; border-radius: 5px;'><tr><td><center><img src='http://aksatta.com/assets/images/favicon.png' height='100px'/><h2>सिद्ध पुरुष</h2></center></td></tr><tr><td></br>$bodytext</br>Thanks & Regards : Ak Satta - सिद्ध पुरुष</br></br>
+    $mail->Body = "<table style='border: 1px #61dbbb solid; padding: 15px; border-radius: 5px;'><tr><td><center><img src='http://aksatta.com/assets/images/favicon.png' height='100px'/><h2>NeoVivah</h2></center></td></tr><tr><td></br>$bodytext</br>Thanks & Regards : NeoVivah Team</br></br>
 </td></tr></table>";
     $mail->AddAddress($to);
-    $status = $mail->Send();
+    return $mail->Send();
 }
 
 // Time Ago Function
