@@ -1,0 +1,29 @@
+.dataTables_wrapper select,.dataTables_wrapper input{
+  padding: 2px 5px;
+  border: 1px #ddd solid;
+  background: transparent;
+  border-radius: 3px;
+}
+.paginate_button.current {
+  background: #926dde !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+  color: #fff !important;
+}
+.fa-trash{
+  color: red;
+}
+a.btn.btn-primary.pull-right {
+  color: #fff;
+  font-weight: 500;
+}
+.profile-img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 4px #55cbbb double;
+  margin-bottom: 15px;
+}
+#imgupload,#imgupload1,#imgupload2,#imgupload3,#imgupload4,#imgupload5,#imgupload6,#imgupload7,#imgupload8,#imgupload9,#imgupload0{
+  display: none;
+}
