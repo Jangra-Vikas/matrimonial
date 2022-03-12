@@ -54,7 +54,6 @@
             </div>
         <?php } ?>
     </div>
->>>>>>> vikasDev
     <div class="col-md-4 match_right">
 	<form id="searchMembers" method="post">
 		<div class="form_but1">

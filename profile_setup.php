@@ -372,6 +372,14 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                             <input required value="<?php echo $spiritual_social_background->caste; ?>" name="caste" placeholder="Caste" class="form-control">
                                         </div>
                                         <div class="form-group">
+                                            <label>Manglik</label><br>
+                                            <select class="form-control" name="manglik">
+                                                <option value="Yes"<?php echo ($spiritual_social_background->manglik == 'Yes') ? 'selected' : ''; ?>>Yes</option>
+                                                <option value="No"<?php echo ($spiritual_social_background->manglik == 'No') ? 'selected' : ''; ?> selected>No</option>
+                                                <option value="Dose_Not_Matter" <?php echo ($spiritual_social_background->manglik == 'Dose_Not_Matter') ? 'selected' : ''; ?>>Dose not matter</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Ethnicity</label><br>
                                             <input required value="<?php echo $spiritual_social_background->ethnicity; ?>" name="ethnicity" placeholder="Ethnicity" class="form-control">
                                         </div>
