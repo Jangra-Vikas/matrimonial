@@ -452,6 +452,7 @@ if(isset($_GET['update'])){
 		$dob = $_POST['dob'];
 		$on_behalf = $_POST['on_behalf'];
 		$children = $_POST['children'];
+		$education = $_POST['education'];
 		$address = $_POST['address'];
 
         $img = $_FILES['image']['name'];
@@ -462,7 +463,7 @@ if(isset($_GET['update'])){
             move_uploaded_file($tmp,'../assets/img/users/'.$image);
             $conn->query("UPDATE users SET image='$image' WHERE id = $userId");
         }
-		$sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children' WHERE id = $userId");
+		$sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children',education='$education' WHERE id = $userId");
 	} else {
 		$sql = $conn->query("UPDATE users SET $column='$jsonData' WHERE id = $userId");
 	}

@@ -50,7 +50,19 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                                 <option value="Married" <?php echo ($logged_user['marital_status'] == 'Married') ? 'selected' : ''; ?>>Married</option>
                                                 <option value="Divorced" <?php echo ($logged_user['marital_status'] == 'Divorced') ? 'selected' : ''; ?>>Divorced</option>
                                                 <option value="Separated" <?php echo ($logged_user['marital_status'] == 'Widowed') ? 'selected' : ''; ?>>Widowed</option>
-                                                <option value="Widowed" <?php echo ($logged_user['marital_status'] == 'Widowed') ? 'selected' : ''; ?>>Widowed</option>
+                                               
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Education<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="education">
+                                                    <option value="">Select One</option>
+                                                        <?php $qualification = $conn->query('SELECT * FROM education');
+                                                        while($x = $qualification->fetch_assoc()){
+                                                            echo '<option value="'.$x["id"].'" '.(($x['id'] == $logged_user['education']) ? 'selected' : '').'>'.$x["name"].'</option>';
+                                                        }
+                                                    ?>
+
                                             </select>
                                         </div>
                                     </div>
@@ -143,7 +155,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                 </div>
                 <div class="col-md-12">
                     <div class="card-header">
-                        <p>Language</p>
+                        <p>Residence & Language</p>
                     </div>
                     <div class="card-body">
                         <form action="dashboard/common/actions.php?update=language" method="post">
@@ -166,20 +178,49 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                                 <option value="Telugu" <?php echo ($language->mother_tongue == 'Telugu') ? 'selected' : ''; ?>> Telugu </option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label>Country</label><br>
+                                            <div class="select-block1">
+                                                <select class="form-control select" name="country" data-type="state">
+                                                    <option value="">Select</option>
+                                                    <?php $countries = $conn->query('SELECT * FROM countries');
+                                                    while($x = $countries->fetch_assoc()){
+                                                    echo '<option value="'.$x["id"].'">'.$x["name"].'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form_group">
+                                            <div class="select-block1">
+                                                <label>City</label>
+                                                <select id="city" name="cites">
+                                                    <option value="">Choose state first</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6"style="margin-top:20px;">
                                     <div class="myRow">
                                         <div class="form-group">
-                                        <label>Known Languages</label><br>
-                                        <select class="form-control" name="Languages">
-                                            <option value="">Select</option>
-                                            <?php $languages = $conn->query('SELECT * FROM language WHERE is_active="Yes"');
-                                                while($x = $languages->fetch_assoc()){
-                                                    echo '<option value="'.$x["id"].'" '.(($x['id'] == $language->Languages) ? 'selected' : '').'>'.$x["name"].'</option>';
-                                                }
-                                            ?> 
-                                        </select>
+                                            <label>Known Languages</label><br>
+                                            <select class="form-control" name="Languages">
+                                                <option value="">Select</option>
+                                                <?php $languages = $conn->query('SELECT * FROM language WHERE is_active="Yes"');
+                                                    while($x = $languages->fetch_assoc()){
+                                                        echo '<option value="'.$x["id"].'" '.(($x['id'] == $language->Languages) ? 'selected' : '').'>'.$x["name"].'</option>';
+                                                    }
+                                                ?> 
+                                            </select>
+                                        </div>
+                                        <div class="form_group">
+                                            <label>State</label>
+                                            <div class="select-block1">
+                                                <select class="select" data-type="city" name="states" id="state">
+                                                    <option value="">Choose country first</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <button type="sabmit" class="btn_1 submit  pull-right">Update</button>
                                     </div>
@@ -559,7 +600,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                 <div class="col-md-6"style="margin-top:20px;">
                                     <div class="myRow">
                                         <div class="form-group">
-                                            <label>Residence Country </label><br>
+                                            <label>Residence Country </label>
                                                 <select class="form-control" name="residence_country">
                                                     <option value="">Select One</option>
                                                     <?php $residence_country = $conn->query('SELECT * FROM countries');
@@ -636,6 +677,23 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
+<script>
+    $(document).ready(function() {
+        $('.select').change(function() {
+            var id = $(this).val();
+            var type = $(this).data('type');
+            $.ajax({
+              url: "dashboard/common/actions.php",
+              type: "POST",
+              data: {type : type, id: id},
+              dataType: "html",
+              success : function(response){
+                $('#'+type).html(response);
+              }
+            });
+        });
+    });
+
+</script>
 <?php require_once('footer.php'); ?>

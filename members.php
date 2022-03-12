@@ -39,6 +39,10 @@
 						<td class="day_label1">Marital Status :</td>
 						<td class="day_value"><?php echo $user['marital_status']; ?> </td>
 					</tr>
+					   <tr class="opened">
+						<td class="day_label1">Education :</td>
+						<td class="day_value"><?php echo $user['marital_status']; ?> </td>
+					</tr>
 			    </tbody>
 		   </table>
 		   <div class="buttons text-center">
