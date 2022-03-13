@@ -21,6 +21,7 @@
     <!----font-Awesome----->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
+<link rel="shortcut icon" href="images/logo1.png" type="images">
 <script>
 $(document).ready(function(){
     $('.dropify').dropify();
