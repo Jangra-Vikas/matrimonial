@@ -15,7 +15,7 @@
     <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="icon" href="assets/img/logo2.png">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -25,7 +25,24 @@
         text-align: center;
         border: 1px #ddd solid;
       }
-    </style>
+  .card-header{background-color:#9790901c;
+  height:auto;
+  width:100%;
+  box-shadow:0 0 2px #807979c7;
+  border-radius:5px 5px 0 0;
+  padding:10px 15px;
+  font-size:20px;
+  font-weight:bold;
+  margin-top: 25px;
+  }
+ .card-body{background-color:#fff(88, 37, 37);
+  height:auto;
+  width:100%;
+  box-shadow:0 0 2px #807979c7;
+  border-radius:0 0 5px 5px;
+  padding:20px 20px;
+  }
+</style>
   </head>
 
   <body onLoad="document.getElementById('toster').click();">
