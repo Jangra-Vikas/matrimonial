@@ -441,7 +441,7 @@ if(isset($_POST['welcomeForm'])){
 
 if(isset($_GET['update'])){
 	$column = $_GET['update'];
-	$userId = $logged_user['id'];
+	$userId = (!empty($_POST['userId']) && $logged_user['id'] == 1) ? $_POST['userId'] : $logged_user['id'];
 	$jsonData = json_encode($_POST);
 	if ($column == 'basic_info') {
 		$name = $_POST['full_name'];
@@ -458,20 +458,53 @@ if(isset($_GET['update'])){
         $img = $_FILES['image']['name'];
         $tmp = $_FILES['image']['tmp_name'];
         $image = time().$img;
-        //print_r($_FILES); die;
-        if (!empty($_FILES['image']['name'])){
-            move_uploaded_file($tmp,'../assets/img/users/'.$image);
-            $conn->query("UPDATE users SET image='$image' WHERE id = $userId");
+
+        if (!empty($userId) && $logged_user['id'] > 1) {
+            $sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children',education='$education' WHERE id = $userId");
+
+            if (!empty($_FILES['image']['name']) && $userId > 1){
+                move_uploaded_file($tmp,'../assets/img/users/'.$image);
+                $conn->query("UPDATE users SET image='$image' WHERE id = $userId");
+            }
+        } else if(empty($_POST['userId']) && $logged_user['id'] == 1) {
+            $usernam 	= explode(' ', $name);
+            $password 	= mysqli_real_escape_string($conn,$_POST['password']);
+            $token 		= md5(rand());
+            $fetch = $conn->query("SELECT id FROM users ORDER BY id DESC")->fetch_assoc();
+            $check = $conn->query("SELECT * FROM users WHERE email='$email' || mobile='$mobile'");
+            $username = strtolower(implode('.',$usernam)).$fetch['id'];
+            if ($check->num_rows > 0) {
+                header('Location:../add_user.php?response=false&msg=Email or mobile already registered with us');
+                die;
+            }
+            $sql=$conn->query("INSERT INTO users (full_name, username, mobile, email, password, address, dob, gender, marital_status, on_behalf, children, education, user_type, token, status)VALUES('$name', '$username', '$mobile', '$email', '$password', '$address', '$dob', '$gender', '$marital_status', '$on_behalf', '$children', '$education', 'User', '$token', 'Confirmed')");
+
+            $userId = $conn->insert_id;
+            if (!empty($_FILES['image']['name'])){
+                move_uploaded_file($tmp,'../assets/img/users/'.$image);
+                $conn->query("UPDATE users SET image='$image' WHERE id = $userId");
+            }
+
+        } else {
+            $sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children',education='$education' WHERE id = $userId");
         }
-		$sql = $conn->query("UPDATE users SET full_name='$name',mobile='$mobile',email='$email',address='$address',dob='$dob',gender='$gender',marital_status='$marital_status',on_behalf='$on_behalf',children='$children',education='$education' WHERE id = $userId");
 	} else {
 		$sql = $conn->query("UPDATE users SET $column='$jsonData' WHERE id = $userId");
 	}
-	if ($sql) {
-		$_SESSION['user'] = $conn->query("SELECT * FROM users WHERE id = $userId")->fetch_assoc();
-		header('Location:../../profile_setup.php?response=true&msg=Data Updated Successfully');
+
+    if ($sql) {
+        if ($logged_user['id'] == 1) {
+            header("Location:../add_user.php?edit=$userId&response=true&msg=User Modified Successfully");
+        } else {
+            $_SESSION['user'] = $conn->query("SELECT * FROM users WHERE id = $userId")->fetch_assoc();
+            header('Location:../../profile_setup.php?response=true&msg=Data Updated Successfully');
+        }
 	} else {
-		header('Location:../../profile_setup.php?response=false&msg=Unable to Update Data');
+        if ($logged_user['id'] == 1) {
+            header("Location:../add_user.php?edit=$userId&response=true&msg=Unable to Update Data");
+        } else {
+            header('Location:../../profile_setup.php?response=false&msg=Unable to Update Data');
+        }
 	}
 }
 

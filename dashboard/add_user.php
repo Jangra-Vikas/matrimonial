@@ -1,13 +1,18 @@
-<?php require_once('header.php'); 
-$physical_attributes = json_decode($logged_user['physical_attributes']);
-$language = json_decode($logged_user['language']);
-$hobbies_interest = json_decode($logged_user['hobbies_interest']);
-$personal_attitude_behavior = json_decode($logged_user['personal_attitude_behavior']);
-$spiritual_social_background = json_decode($logged_user['spiritual_social_background']);
-$lifestyle = json_decode($logged_user['lifestyle']);
-$astronomic_information = json_decode($logged_user['astronomic_information']);
-$family_information = json_decode($logged_user['family_information']);
-$partner_expectation = json_decode($logged_user['partner_expectation']);
+<?php require_once('header.php'); $edit = $_GET['edit'];
+if ($edit) {
+    $user = $conn->query("SELECT * FROM users WHERE id = $edit")->fetch_assoc();
+} else {
+    $user = [];
+}
+$physical_attributes = json_decode($user['physical_attributes']);
+$language = json_decode($user['language']);
+$hobbies_interest = json_decode($user['hobbies_interest']);
+$personal_attitude_behavior = json_decode($user['personal_attitude_behavior']);
+$spiritual_social_background = json_decode($user['spiritual_social_background']);
+$lifestyle = json_decode($user['lifestyle']);
+$astronomic_information = json_decode($user['astronomic_information']);
+$family_information = json_decode($user['family_information']);
+$partner_expectation = json_decode($user['partner_expectation']);
 ?>
     <div class="main-content">
       	<div class="card">
@@ -21,35 +26,35 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
 		      		</div>
 		      		<div class="card-body collapse in" id="basic_info">
 		      			<form action="common/actions.php?update=basic_info" method="post" enctype="multipart/form-data">
-		      				<input name="image" class="dropify" data-default-file="dashboard/assets/img/users/<?php echo $logged_user['image']; ?>" type="file" />
+		      				<input name="image" class="dropify" data-default-file="dashboard/assets/img/users/<?php echo $user['image']; ?>" type="file" />
 		      				<div class="row">
 		      					<div class="col-md-6" style="margin-top:20px;">
 		      						<div class="myRow">
 		      							<div class="form-group">
 		      								<label>Full Name<span class="text-danger">*</span></label>
-		      								<input required name="full_name" placeholder="Full Name" class="form-control" value="<?php echo $logged_user['full_name']; ?>">
+		      								<input required name="full_name" placeholder="Full Name" class="form-control" value="<?php echo $user['full_name']; ?>">
 		      							</div>
 		      							<div class="form-group">
 		      								<label>Gender<span class="text-danger">*</span></label>
 		      								<select class="form-control" name="gender">
 		      									<option value="">Gender</option>
-		      									<option value="Male" <?php echo ($logged_user['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
-		      									<option value="Female" <?php echo ($logged_user['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
-		      									<option value="Transgender" <?php echo ($logged_user['gender'] == 'Transgender') ? 'selected' : ''; ?>>Transgender</option>
-		      									<option value="Other" <?php echo ($logged_user['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
+		      									<option value="Male" <?php echo ($user['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+		      									<option value="Female" <?php echo ($user['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+		      									<option value="Transgender" <?php echo ($user['gender'] == 'Transgender') ? 'selected' : ''; ?>>Transgender</option>
+		      									<option value="Other" <?php echo ($user['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
 		      								</select>
 		      							</div>
 		      							<div class="form-group">
                                             <label>Phone Number<span class="text-danger">*</span></label>
-                                            <input required value="<?php echo $logged_user['mobile']; ?>" type="number" name="mobile" placeholder="Mobile Number" class="form-control">
+                                            <input required value="<?php echo $user['mobile']; ?>" type="number" name="mobile" placeholder="Mobile Number" class="form-control">
                                         </div>
                                         <div class="form-group">
                                         	<label>Marital Status<span class="text-danger">*</span></label>
                                          	<select class="form-control" name="marital_status">
-                                                <option value="Never Married" <?php echo ($logged_user['marital_status'] == 'Never Married') ? 'selected' : ''; ?>>Never Married</option>
-                                                <option value="Married" <?php echo ($logged_user['marital_status'] == 'Married') ? 'selected' : ''; ?>>Married</option>
-                                                <option value="Divorced" <?php echo ($logged_user['marital_status'] == 'Divorced') ? 'selected' : ''; ?>>Divorced</option>
-                                                <option value="Separated" <?php echo ($logged_user['marital_status'] == 'Widowed') ? 'selected' : ''; ?>>Widowed</option>
+                                                <option value="Never Married" <?php echo ($user['marital_status'] == 'Never Married') ? 'selected' : ''; ?>>Never Married</option>
+                                                <option value="Married" <?php echo ($user['marital_status'] == 'Married') ? 'selected' : ''; ?>>Married</option>
+                                                <option value="Divorced" <?php echo ($user['marital_status'] == 'Divorced') ? 'selected' : ''; ?>>Divorced</option>
+                                                <option value="Separated" <?php echo ($user['marital_status'] == 'Widowed') ? 'selected' : ''; ?>>Widowed</option>
                                                
                                             </select>
                                         </div>
@@ -59,7 +64,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                                 <option value="">Select One</option>
                                                     <?php $qualification = $conn->query('SELECT * FROM education');
                                                     while($x = $qualification->fetch_assoc()){
-                                                        echo '<option value="'.$x["id"].'" '.(($x['id'] == $logged_user['education']) ? 'selected' : '').'>'.$x["name"].'</option>';
+                                                        echo '<option value="'.$x["id"].'" '.(($x['id'] == $user['education']) ? 'selected' : '').'>'.$x["name"].'</option>';
                                                     }
                                                 ?>
                                             </select>
@@ -70,26 +75,31 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
 		      						<div class="myRow">
 			      						<div class="form-group">
 			      							<label>Email ID <span class="text-danger">*</span></label>
-			      							<input required value="<?php echo $logged_user['email']; ?>" type="email" placeholder="Email ID" name="email" class="form-control">
+			      							<input required value="<?php echo $user['email']; ?>" type="email" placeholder="Email ID" name="email" class="form-control">
 			      						</div>
 			      						<div class="form-group">
 		      								<label>Date of Birth <span class="text-danger">*</span></label>
-		      								<input required type="date" placeholder="dd-mm-yyyy" name="dob" class="form-control" value="<?php echo $logged_user['dob']; ?>">
+		      								<input required type="date" placeholder="dd-mm-yyyy" name="dob" class="form-control" value="<?php echo $user['dob']; ?>">
 		      							</div>
 		      							<div class="form-group">
                                             <label>On Behalf <span class="text-danger">*</span></label>
                                             <select class="form-control" name="on_behalf">
-                                                <option value="Self" <?php echo ($logged_user['on_behalf'] == 'Self') ? 'selected' : ''; ?>>Self</option>
-                                                <option value="Friend" <?php echo ($logged_user['on_behalf'] == 'Friend') ? 'selected' : ''; ?>>Friend</option>
-                                                <option value="Brother" <?php echo ($logged_user['on_behalf'] == 'Brother') ? 'selected' : ''; ?>>Brother</option>
-                                                <option value="Daughter/Son" <?php echo ($logged_user['on_behalf'] == 'Daughter/Son') ? 'selected' : ''; ?>>Daughter/Son</option>
+                                                <option value="Self" <?php echo ($user['on_behalf'] == 'Self') ? 'selected' : ''; ?>>Self</option>
+                                                <option value="Friend" <?php echo ($user['on_behalf'] == 'Friend') ? 'selected' : ''; ?>>Friend</option>
+                                                <option value="Brother" <?php echo ($user['on_behalf'] == 'Brother') ? 'selected' : ''; ?>>Brother</option>
+                                                <option value="Daughter/Son" <?php echo ($user['on_behalf'] == 'Daughter/Son') ? 'selected' : ''; ?>>Daughter/Son</option>
                                             </select>
                                         </div>
                                          <div class="form-group">
                                             <label>Number Of Children<span class="text-danger">*</span></label><br>
-                                            <input required type="number" value="<?php echo $logged_user['children']; ?>" placeholder="Number Of Children" class="form-control" name="children">
+                                            <input required type="number" value="<?php echo $user['children']; ?>" placeholder="Number Of Children" class="form-control" name="children">
                                         </div>
-                                        <button type="sabmit" class="btn_1 btn-primary submit  pull-right ">Update</button>
+                                         <div class="form-group">
+                                            <label>Password<span class="text-danger">*</span></label><br>
+                                            <input required value="<?php echo $user['password']; ?>" placeholder="Password" class="form-control" name="password">
+                                            <input value="<?php echo $edit; ?>" type="hidden" class="form-control" name="userId">
+                                        </div>
+                                        <button type="sabmit" class="btn_1 btn-primary submit pull-right ">Update</button>
 			      					</div>
 		      					</div>
 		      				</div>

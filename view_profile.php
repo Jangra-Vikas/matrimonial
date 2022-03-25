@@ -1,5 +1,6 @@
 <?php require_once('header.php'); $userId = $_GET['view'];
 $user = $conn->query("SELECT * FROM users WHERE id = $userId")->fetch_assoc();
+$planInfo = $conn->query("SELECT * FROM payments WHERE user_id = ".$logged_user['id'])->fetch_assoc();
 $physical_attributes = json_decode($user['physical_attributes']);
 $language = json_decode($user['language']);
 $hobbies_interest = json_decode($user['hobbies_interest']);
@@ -75,13 +76,13 @@ $partner_expectation = json_decode($user['partner_expectation']);?>
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                                    <div class="tab_box">
+                                    <!--<div class="tab_box">
                                         <h1>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</h1>
                                         <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
                                             roots in a piece of classical Latin literature from 45 BC, making it over
                                             2000 years old. Richard McClintock, a Latin professor</p>
-                                    </div>
+                                    </div>-->
                                     <div class="basic_1">
                                         <h3>Basic Information </h3>
                                         <div class="col-md-6 basic_1-left">
@@ -93,11 +94,11 @@ $partner_expectation = json_decode($user['partner_expectation']);?>
 	                                                </tr>
 	                                                <tr class="opened">
 	                                                    <td class="day_label">Gender :</td>
-	                                                    <td class="day_value"><?php echo $user['mobile']; ?></td>
+	                                                    <td class="day_value"><?php echo $user['gender']; ?></td>
 	                                                </tr>
 	                                                <tr class="opened">
 	                                                    <td class="day_label">Phone Number :</td>
-	                                                    <td class="day_value"><?php echo $user['mobile']; ?></td>
+	                                                    <td class="day_value"><?php echo !empty($planInfo) ? $user['mobile'] : '<a href="plans.php">Private</a>'; ?></td>
 	                                                </tr>
 	                                                <tr class="opened">
 	                                                    <td class="day_label">Marital Status :</td>
@@ -111,7 +112,7 @@ $partner_expectation = json_decode($user['partner_expectation']);?>
                                                 <tbody>
 	                                                <tr class="opened_1">
 	                                                    <td class="day_label" style="width:200px;">Email ID :</td>
-	                                                    <td class="day_value"><?php echo $user['email']; ?></td>
+	                                                    <td class="day_value"><?php echo !empty($planInfo) ? $user['email'] : '<a href="plans.php">Private</a>'; ?></td>
 	                                                </tr>
 	                                                <tr class="opened">
 	                                                    <td class="day_label">Date of Birth :</td>

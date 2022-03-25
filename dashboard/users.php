@@ -53,7 +53,7 @@
 	    "targets": 1,
 	    "data": "image",
 	    "render": function ( data, type, row, meta ) {
-	      return '<img src="../images/Users/'+data+'" height="50" class="avatar">';
+	      return '<img src="assets/img/users/'+data+'" height="50" class="avatar">';
 	    }
 	  }
 	  ]
