@@ -1207,6 +1207,7 @@ a#profile-tab, a#home-tab, a#profile-tab1{
 } 
 .grid_3{
 	padding:5em 0;
+  padding-bottom: 0px; 
 }
 .tab_box {
     margin-bottom: 2em;

@@ -16,10 +16,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
         <div class="col-md-8">
             <div class="myRow">
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Basic Information</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#basic_info">
+                        <p>Basic Information<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse in"  id="basic_info">
                         <form action="dashboard/common/actions.php?update=basic_info" method="post" enctype="multipart/form-data">
                             <input name="image" class="dropify" data-default-file="dashboard/assets/img/users/<?php echo $logged_user['image']; ?>" type="file" />
                             <div class="row">
@@ -98,10 +98,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Physical Attributes</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#physical_attributes">
+                        <p>Physical Attributes<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="physical_attributes">
                         <form action="dashboard/common/actions.php?update=physical_attributes" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -154,10 +154,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Residence & Language</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Residence">
+                        <p>Residence & Language<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Residence">
                         <form action="dashboard/common/actions.php?update=language" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -185,7 +185,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                                                     <option value="">Select</option>
                                                     <?php $countries = $conn->query('SELECT * FROM countries');
                                                     while($x = $countries->fetch_assoc()){
-                                                    echo '<option value="'.$x["id"].'">'.$x["name"].'</option>';
+                                                    echo '<option value="'.$x["name"].'">'.$x["name"].'</option>';
                                                         }
                                                     ?>
                                                 </select>
@@ -230,10 +230,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Hobbies & Interest</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Hobbies">
+                        <p>Hobbies & Interest<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Hobbies">
                         <form action="dashboard/common/actions.php?update=hobbies_interest" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -290,10 +290,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Personal Attitude & Behavior</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#personal">
+                        <p>Personal Attitude & Behavior<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="personal">
                         <form action="dashboard/common/actions.php?update=personal_attitude_behavior" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -326,10 +326,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Spiritual & Social Background</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Spiritual">
+                        <p>Spiritual & Social Background<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Spiritual">
                         <form action="dashboard/common/actions.php?update=spiritual_social_background" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -401,10 +401,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Lifestyle</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#lifes">
+                        <p>Lifestyle<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="lifes">
                         <form action="dashboard/common/actions.php?update=lifestyle" method="post">
                             <div class="row">
                             <div class="col-md-6" style="margin-top:20px;">
@@ -449,10 +449,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Astronomic Information</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Astronomic">
+                        <p>Astronomic Information<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Astronomic">
                         <form action="dashboard/common/actions.php?update=astronomic_information" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -485,10 +485,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Family Information</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Family">
+                        <p>Family Information<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Family">
                         <form action="dashboard/common/actions.php?update=family_information" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
@@ -525,10 +525,10 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-header">
-                        <p>Partner Expectation</p>
+                    <div class="card-header" data-toggle="collapse" data-target="#Partner">
+                        <p>Partner Expectation<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body collapse" id="Partner">
                         <form action="dashboard/common/actions.php?update=partner_expectation" method="post">
                             <div class="row">
                                 <div class="col-md-6" style="margin-top:20px;">
