@@ -42,6 +42,18 @@
   border-radius:0 0 5px 5px;
   padding:20px 20px;
   }
+  .card-body1{
+    padding: 70px 30px;
+  }
+  .box{
+    text-align: center;
+    border-radius: 5px; 
+    box-shadow:0 0 5px #807979c7;
+  }
+  .sidebar-background{
+    background: #ffffffd9;
+
+  }
 </style>
   </head>
 
@@ -55,10 +67,10 @@
     </div>
 
     <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
-      <header class="sidebar-header">
+      <header class="sidebar-header sidebar-background">
         <!-- <a class="logo-icon" href="../"><img src="../images/logo.png" alt="logo icon"></a> -->
         <span class="logo text-center">
-          <a href="../"><img src="../images/logo.svg" alt="logo" width="80"></a>
+          <a href="../"><img src="../images/logo2.png" alt="logo" width="90"></a>
         </span>
         <span class="sidebar-toggle-fold"></span>
       </header>
@@ -75,48 +87,13 @@
             </a>
           </li>
           <?php if($logged_user['user_type']=='Administrator'){ ?>
-          <li class="menu-item <?php if($page=='users.php'){ echo 'active'; }?>">
-            <a class="menu-link" href="users.php">
-              <span class="icon fa fa-user"></span>
-              <span class="title">Users</span>
-            </a>
-          </li>
-          <li class="menu-item <?php if($page=='plans.php' || $page=='add_plans.php'){ echo 'active'; }?>">
-            <a class="menu-link" href="plans.php">
-              <span class="icon fa fa-user"></span>
-              <span class="title">Plans</span>
-            </a>
-          </li>
-          <li class="menu-category">Settings</li>		
-          <li class="menu-item <?php if($page=='wa_text.php' || $page=='add_slider.php' || $page=='settings.php' || $page=='layout.php' || $page=='pages.php'){ echo 'active'; }?>">
-            <a class="menu-link" href="#">
-              <span class="icon ti-layout"></span>
-              <span class="title">Settings</span>
-              <span class="arrow"></span>
-            </a>
-
-            <ul class="menu-submenu" <?php if($page=='wa_text.php' || $page=='add_slider.php' || $page=='settings.php' || $page=='layout.php' || $page=='pages.php'){ echo 'style="display:block"'; }?>>
-              <li class="menu-item">
-                <a class="menu-link" href="settings.php">
-                  <span class="dot"></span>
-                  <span class="title">Header & Footer</span>
-                </a>
-              </li>
-              <li class="menu-item <?php if($page=='add_slider.php'){ echo 'active'; }?>">
-                <a class="menu-link" href="add_slider.php">
-                  <span class="dot"></span>
-                  <span class="title">Slider</span>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link" href="pages.php">
-                  <span class="dot"></span>
-                  <span class="title">Pages</span>
-                </a>
-              </li>
-            </ul>
-          </li>
-		<?php } ?>
+            <li class="menu-item <?php if($page=='users.php'){ echo 'active'; }?>">
+              <a class="menu-link" href="users.php">
+                <span class="icon fa fa-user"></span>
+                <span class="title">Users</span>
+              </a>
+            </li>
+		      <?php } ?>
         </ul>
       </nav>
 
