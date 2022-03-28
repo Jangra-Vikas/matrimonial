@@ -8,12 +8,11 @@
                 <div class="card-body box">
                     <a href="users.php">
                         <i class="fa fa-5x fa-users"></i><br>
-                        <h5>Total user
-                            <?php 
-                            $users = $conn->query('SELECT count(id) FROM users WHERE gender="Male or Female"')->fetch_assoc();
-                            ?>
-                        </h5>
-                        
+                        <h5>Total user</h5>
+                        <h2><?php
+                            $users = $conn->query('SELECT count(id) as totalUsers FROM users WHERE id > 1')->fetch_assoc();
+                            echo $users['totalUsers'];
+                            ?></h2>
                     </a>
                 </div>
             </div>
@@ -22,7 +21,10 @@
                     <a href="users.php">
                         <i class="fa fa-5x fa-user"></i><br>
                         <h5>Total Male user</h5>
-                        <h2>2</h2>
+                        <h2><?php
+                            $users = $conn->query('SELECT count(id) as maleUsers FROM users WHERE gender="Male" && id > 1')->fetch_assoc();
+                            echo $users['maleUsers'];
+                            ?></h2>
                     </a>
                 </div>
             </div>
@@ -31,7 +33,10 @@
                     <a href="users.php">
                         <i class="fa fa-5x fa-female"></i><br>
                         <h5>Total Female user</h5>
-                        <h2>2</h2>
+                        <h2><?php
+                            $users = $conn->query('SELECT count(id) as femaleUsers FROM users WHERE gender="Female" && id > 1')->fetch_assoc();
+                            echo $users['femaleUsers'];
+                            ?></h2>
                     </a>
                 </div>
             </div>
@@ -40,7 +45,10 @@
                     <a href="#">
                         <i class="fa fa-5x fa-money"></i><br>
                         <h5>Total earning</h5>
-                        <h2>2</h2>
+                        <h2><?php
+                            /*$earning = $conn->query('SELECT SUM(amount) as totalEarning FROM payments')->fetch_assoc();
+                            echo '&#8377; '.!empty($earning) ? $earning['totalEarning'] : '0.00';*/
+                            ?>&#8377; 0.00</h2>
                     </a>
                 </div>
             </div>
