@@ -46,6 +46,7 @@
      </div>
     </div>
   </div>
+  <br>
   <div class="about_middle">
       <div class="container">
         <h2>Happy Clients</h2>

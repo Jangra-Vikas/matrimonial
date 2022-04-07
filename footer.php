@@ -145,7 +145,7 @@
     <div class="footer">
     	<div class="container">
     		<div class="copy">
-		      <p>Copyright © 2015 NeoVivah . All Rights Reserved  | Design by <a href="#">Ayush Chauhan</a></p>
+		      <p>Copyright © 2022 NeoVivah . All Rights Reserved <a href="privacy.php">Privacy Policy</a> | <a href="terms.php">Terms & Conditions</a> | <a href="FAQ.php">FAQ</a> | <a href="promotional_pop_up.php">Promotional Pop Up</a> | Design by <a href="#">Ayush Chauhan</a></p>
 	        </div>
     	</div>
     </div>

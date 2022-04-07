@@ -11,6 +11,7 @@
 								<th>ID</th>
 								<th>Image</th>
 								<th>Name</th>
+								<th>Price</th>
 								<th>Contact View</th>
 								<th>Validity</th>
 								<th>Status</th>
@@ -37,10 +38,11 @@
         {"data":"name"},
         {"data":"price"},
         {"data":"contact_view"},
+        {"data":"validity"},
         {"data":"status"},
         ],
         "columnDefs": [{
-	    "targets": 6,
+	    "targets": 7,
 	    "data": "id",
 	    "render": function ( data, type, row, meta ) {
 	      return '<a href="add_plans.php?edit='+data+'" title="Edit User"><i class="fa fa-pencil"></i></a> &nbsp; <a href="common/actions.php?delete_plan='+data+'" title="Delete User"><i class="fa fa-trash"></i></a>';

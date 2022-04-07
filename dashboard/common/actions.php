@@ -540,7 +540,7 @@ if (isset($_POST['add_plan'])) {
 
 
 if($_GET['plans_list']=='all'){
-	$query=$conn->query("SELECT id,name,package_image,price,contact_view,status FROM plans");
+	$query=$conn->query("SELECT id,name,package_image,price,contact_view,validity,status FROM plans");
 	$rows=array();
 	while($row=$query->fetch_assoc()){
 		$rows[]=$row;

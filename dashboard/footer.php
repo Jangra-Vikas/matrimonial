@@ -2,7 +2,7 @@
       <footer class="site-footer">
         <div class="row ">
           <div class="col-md-6">
-            <p class="text-center text-md-left">Copyright © 2015 NeoVivah . All Rights Reserved  | Design by <a href="#">Ayush Chauhan</a></p>
+            <p class="text-center text-md-left">Copyright © 2022 NeoVivah. All Rights Reserved | Design by <a href="#">Ayush Chauhan</a></p>
           </div>
 
           <!--<div class="col-md-6">

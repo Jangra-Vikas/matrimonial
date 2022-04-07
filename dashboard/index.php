@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card-body box">
-                    <a href="#">
+                    <a href="payment.php">
                         <i class="fa fa-5x fa-money"></i><br>
                         <h5>Total earning</h5>
                         <h2><?php

@@ -93,6 +93,41 @@
                 <span class="title">Users</span>
               </a>
             </li>
+             <li class="menu-item <?php if($page=='plans.php'){ echo 'active'; }?>">
+              <a class="menu-link" href="plans.php">
+                <span class="icon fa fa-money"></span>
+                <span class="title">Plan</span>
+              </a>
+            </li>
+            <li class="menu-category">Settings</li>   
+          <li class="menu-item <?php if($page=='wa_text.php' || $page=='add_slider.php' || $page=='settings.php' || $page=='layout.php' || $page=='pages.php'){ echo 'active'; }?>">
+            <a class="menu-link" href="#">
+              <span class="icon ti-layout"></span>
+              <span class="title">Settings</span>
+              <span class="arrow"></span>
+            </a>
+
+            <ul class="menu-submenu" <?php if($page=='wa_text.php' || $page=='add_slider.php' || $page=='settings.php' || $page=='layout.php' || $page=='pages.php'){ echo 'style="display:block"'; }?>>
+              <li class="menu-item">
+                <a class="menu-link" href="settings.php">
+                  <span class="dot"></span>
+                  <span class="title">Header & Footer</span>
+                </a>
+              </li>
+              <li class="menu-item <?php if($page=='add_slider.php'){ echo 'active'; }?>">
+                <a class="menu-link" href="add_slider.php">
+                  <span class="dot"></span>
+                  <span class="title">Slider</span>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a class="menu-link" href="pages.php">
+                  <span class="dot"></span>
+                  <span class="title">Pages</span>
+                </a>
+              </li>
+            </ul>
+          </li>
 		      <?php } ?>
         </ul>
       </nav>
