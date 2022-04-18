@@ -120,9 +120,9 @@
 			<div class="select-block1">
 				<select class="select" name="country" data-type="state">
 					<option value="">Country</option>
-					<?php $countries = $conn->query('SELECT name FROM countries');
+					<?php $countries = $conn->query('SELECT * FROM countries');
 						while($x = $countries->fetch_assoc()){
-							echo '<option value="'.$x["name"].'">'.$x["name"].'</option>';
+							echo '<option value="'.$x["id"].'">'.$x["name"].'</option>';
 						}
 					?>
 				</select>

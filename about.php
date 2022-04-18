@@ -1,53 +1,40 @@
 <?php require_once('header.php'); ?>
 <div class="grid_3">
     <div class="container">
-     <div class="breadcrumb1">
-       <ul>
-          <a href="index.php"><i class="fa fa-home home_1"></i></a>
-          <span class="divider">&nbsp;|&nbsp;</span>
-          <li class="current-page">About</li>
-       </ul>
-     </div>
-     <div class="about">
-           <div class="col-md-6 about_left">
+        <div class="breadcrumb1">
+            <ul>
+                <a href="index.php"><i class="fa fa-home home_1"></i></a>
+                <span class="divider">&nbsp;|&nbsp;</span>
+                <li class="current-page">About</li>
+            </ul>
+        </div>
+        <div class="about">
+            <div class="col-md-6 about_left">
                <img src="images/a3.jpg" class="img-responsive" alt=""/>
-           </div>
-           <div class="col-md-6 about_right">
-               <h1>About us</h1>
-               <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-               <div class="accordation">
-             <div class="jb-accordion-wrapper">
-                  <div class="jb-accordion-title">Accordion 1 <button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion-1-"><i class="fa fa-angle-down"> </i></button></div>
-                  <p><!-- /.accordion-title -->
-                  </p><div id="accordion-1-" class="jb-accordion-content collapse in" style="height: auto;">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae...</p>
-                  </div>
-                  <p><!-- /.collapse --></p>
-              </div>
-              <div class="jb-accordion-wrapper">
-                  <div class="jb-accordion-title">Accordion2 <button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2-"><i class="fa fa-angle-down"> </i></button></div>
-                  <p><!-- /.accordion-title -->
-                  </p><div id="accordion2-" class="jb-accordion-content collapse ">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
-                  </div>
-                  <p><!-- /.collapse --></p>
-              </div>
-              <div class="jb-accordion-wrapper">
-                  <div class="jb-accordion-title">Accordion3<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion3"><i class="fa fa-angle-down"> </i></button></div>
-                  <p><!-- /.accordion-title -->
-                  </p><div id="accordion3" class="jb-accordion-content collapse ">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
-                  </div>
-                  <p><!-- /.collapse --></p>
-              </div>
-          </div>
-           </div>
-           <div class="clearfix"> </div>
-     </div>
+            </div>
+            <div class="col-md-6 about_right">
+                <h1>About us</h1>
+                <p>A Big Thanks www.NeoVivah.com to make easy and faster way to find soul mate (Spouse) globally bride/groom for any caste, language & physical status with greatest think</p>
+                <p>It's pretty simple, really: every single day, more and more of the world is online, and as that trend continues the internet is becoming our first choice of where to go to find soul mate. If you want to make sure that bride/groom can find you quickly and easily, it's vital that you create a matrimonial profile at www.NeoVivah.com for yourself and your loved once.</p>
+            </div>
+            <div class="clearfix"> </div>
+            <br>
+            <div class="col-md-12 about_right">
+                <p> Some people make talking marriage agent/vivah parichay sammelan of themselves and post this as their “Profile” Others create ambitious do register their profile at fully-featured websites www.NeoVivah.com where they post their personal Information such as name, email address, date of birth, mobile number, mother tongue, password, country, state/nationality, gender, current location, city, pin code, marital status, height, occupation, income etc. That helps you define your ideal spouse and set suitability criteria.</p>
+                <p>Must share with you greatest news NeoVivah female support policy have free membership plan for first year of user. Female user not to pay premium for first year services. Register hurry your account & enjoy first year member ship free free free.</p>
+                <p>NeoVivah offers user not to pay more then use. User not needs to pay more than their interest</p>
+
+                <p>Thanks NeoVivah to serve world class url to us.</p>
+
+                <p>Regards & Best Wishes,</p>
+                <p>NeoVivah Entire Team</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
     </div>
-  </div>
+</div>
   <br>
-  <div class="about_middle">
+  <!-- <div class="about_middle">
       <div class="container">
         <h2>Happy Clients</h2>
         <div class="about_middle-grid1">
@@ -101,8 +88,8 @@
           <div class="clearfix"> </div>
         </div>
       </div>
-  </div>
-  <div class="about_bottom">
+  </div>-->
+  <!-- <div class="about_bottom">
       <div class="container">
           <h3>Team</h3>
          <div class="col-md-3 about_grid1">
@@ -179,5 +166,5 @@
          </div>
          <div class="clearfix"> </div>
       </div>
-  </div>
+  </div>-->
   <?php require_once('footer.php'); ?>

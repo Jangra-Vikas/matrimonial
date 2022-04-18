@@ -10,7 +10,7 @@
   	<div class="container wrap_1">
 	  <form action="">
 	  	<div class="search_top">
-		 <div class="inline-block">
+		<!--<div class="inline-block">
 		  <label class="gender_1">I am looking for* :</label>
 			<div class="age_box1" style="max-width: 100%; display: inline-block;">
 				<select>
@@ -19,8 +19,8 @@
 					<option value="Female">Groom</option>
 				</select>
 		   </div>
-	    </div>
-        <div class="inline-block">
+	    </div>-->
+        <!--<div class="inline-block">
 		  <label class="gender_1">Located In :</label>
 			<div class="age_box1" style="max-width: 100%; display: inline-block;">
 				<select>
@@ -32,8 +32,8 @@
 					<option value="Colorado">Colorado</option>
                </select>
           </div>
-        </div>
-        <div class="inline-block">
+        </div>-->
+        <!--<div class="inline-block">
 		  <label class="gender_1">Interested In :</label>
 			<div class="age_box1" style="max-width: 100%; display: inline-block;">
 				<select><option value="">* Select Interest</option>
@@ -44,15 +44,15 @@
 					<option value="Fashion">Fashion</option>
                </select>
           </div>
-       </div>
+       </div>-->
      </div>
-	 <div class="inline-block">
+	 <!--<div class="inline-block">
 	   <div class="age_box2" style="max-width: 220px;">
 	   	<label class="gender_1">Age :</label>
 	    <input class="transparent" placeholder="From:" style="width: 34%;" type="text" value="">&nbsp;-&nbsp;<input class="transparent" placeholder="To:" style="width: 34%;" type="text" value="">
 	   </div>
-	 </div>
-       <div class="inline-block">
+	 </div>-->
+       <!--<div class="inline-block">
 		  <label class="gender_1">Status :</label>
 			<div class="age_box1" style="max-width: 100%; display: inline-block;">
 				<select>
@@ -63,7 +63,9 @@
 					<option value="It's Complicated">It's Complicated</option>
 				</select>
 		  </div>
-	    </div>
+	    </div>-->
+		<br>
+		<br>
 		<div class="submit inline-block">
 			<?php if (!$logged_user || !$_SESSION['guest']) {
 		   		echo '<input id="submit-btn" class="hvr-wobble-vertical" type="button" value="Find Matches"data-toggle="modal" data-target="#welcomeModal">';
@@ -72,6 +74,8 @@
 			} ?>
 		</div>
      </form>
+	 <br>
+	 <br>
     </div>
   </div> 
 </div>

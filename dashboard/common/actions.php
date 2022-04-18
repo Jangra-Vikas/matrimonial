@@ -409,6 +409,7 @@ if(isset($_POST['type'])){
 	//echo "SELECT * FROM `$type` WHERE `$where` = $id";
 
 	$sql=$conn->query("SELECT * FROM `$table` WHERE `$column` = $id");
+	
 	if($sql){
 		$rows = '<option value="">Choose one</option>';
 		while ($row = $sql->fetch_assoc()) {

@@ -68,10 +68,10 @@ $(document).ready(function(){
            <div class="container">
                 <a class="brand" href="index.php"><img src="images/logo2.png" alt="logo" width="180"></a>
             	<div class="pull-right">
-          			<nav class="navbar nav_bottom" role="navigation">
+          			<nav class="navbar" role="navigation">
             			<!-- Brand and toggle get grouped for better mobile display -->
 		  				<div class="navbar-header nav_2">
-		     				<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
+		     				<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs" style="color:black;possition;margin-top:-35px"><i class="fa-2x fa fa-bars" aria-hidden="true"></i>
 		        				<span class="sr-only">Toggle navigation</span>
 		       					<span class="icon-bar"></span>
 		       					<span class="icon-bar"></span>
