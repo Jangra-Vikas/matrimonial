@@ -229,7 +229,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                         </form>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!--<div class="col-md-12">
                     <div class="card-header" data-toggle="collapse" data-target="#Hobbies">
                         <p>Hobbies & Interest<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>
                     </div>
@@ -288,7 +288,7 @@ $partner_expectation = json_decode($logged_user['partner_expectation']);
                             </div>
                         </form>
                     </div>
-                </div>
+                </div>-->
                 <div class="col-md-12">
                     <div class="card-header" data-toggle="collapse" data-target="#personal">
                         <p>Personal Attitude & Behavior<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></p>

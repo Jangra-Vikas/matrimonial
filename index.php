@@ -8,6 +8,8 @@
   </div>
   <div class="profile_search">
   	<div class="container wrap_1">
+	<marquee style="background:#ffdac973;padding:10px;color:#fff;font-size:20px;" direction="right">
+     1 year validity free for Female </marquee>
 	  <form action="">
 	  	<div class="search_top">
 		<!--<div class="inline-block">
@@ -64,8 +66,6 @@
 				</select>
 		  </div>
 	    </div>-->
-		<br>
-		<br>
 		<div class="submit inline-block">
 			<?php if (!$logged_user || !$_SESSION['guest']) {
 		   		echo '<input id="submit-btn" class="hvr-wobble-vertical" type="button" value="Find Matches"data-toggle="modal" data-target="#welcomeModal">';
